@@ -37,7 +37,7 @@ object Test extends App {
   val model = pipeline.fit(trainingData)
 
   val test = model.stages.last.asInstanceOf[DecisionTreeClassificationModel]
-  test
+  test.save("decisionTreeClassificationModel.mllib")
 
   val predictions = model.transform(testData)
   predictions.show(5)
